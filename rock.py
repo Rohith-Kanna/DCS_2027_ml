@@ -61,9 +61,9 @@ while True:
                     if playerMove is not None:
                         randomNumber = random.randint(1, 3)
                         print(f"AI Move: {randomNumber}")  # Debug print
-                        imgAI = cv2.imread(f'Resources/{randomNumber}.png', cv2.IMREAD_UNCHANGED)
+                        imgAI = cv2.imread(f'{randomNumber}.png', cv2.IMREAD_UNCHANGED)
                         if imgAI is None:
-                            print(f"Error: Could not load Resources/{randomNumber}.png")
+                            print(f"Error: Could not load {randomNumber}.png")
                         
                         # Player Wins
                         if (playerMove == 1 and randomNumber == 3) or \
@@ -84,7 +84,7 @@ while True:
     if stateResult and imgAI is not None:
         try:
             # Add debug print to see what's happening
-            print(f"Displaying AI image: Resources/{randomNumber}.png")
+            print(f"Displaying AI image: {randomNumber}.png")
             imgBG = cvzone.overlayPNG(imgBG, imgAI, (149, 310))
         except Exception as e:
             print(f"Error overlaying PNG: {e}")
@@ -111,4 +111,5 @@ while True:
         print("Game reset!")
 
 cap.release()
+
 cv2.destroyAllWindows()
